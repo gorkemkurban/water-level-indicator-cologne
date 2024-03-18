@@ -1,4 +1,4 @@
-# water-level-indicator-k-ln
+# water-level-indicator-koln
 A program that measures and graphs the water level of the Rhine
 
 <h2>Useful Links</h2>
