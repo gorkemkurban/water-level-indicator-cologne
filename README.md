@@ -3,7 +3,7 @@ A program that measures and graphs the water level of the Rhine
 
 <h2>Overview</h2>
 
-Welcome to my project developed for the Digital Heritage Lab. In this project, we are using the data provided to us by Cologne Open Data to develop an API using Python-Flask and measure the water levels in Cologne to assess the danger level. In this way, we can have information about whether the water level is dangerous or not and make the work of people working in this field easier. The starting point of the project was the disruption of an archaeological excavation due to the lack of knowledge of the water level. In this way, we produce a solution to a real world problem. 
+Welcome to my project developed for the <a href="https://digitalheritagelab.com">Digital Heritage Lab</a>. In this project, we are using the data provided to us by Cologne Open Data to develop an API using Python-Flask and measure the water levels in Cologne to assess the danger level. In this way, we can have information about whether the water level is dangerous or not and make the work of people working in this field easier. The starting point of the project was the disruption of an archaeological excavation due to the lack of knowledge of the water level. In this way, we produce a solution to a real world problem. 
 
 <h2>Project Objective</h2>
 
