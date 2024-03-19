@@ -50,9 +50,9 @@ def get_hochwasser_data():
                 datum = datum.replace(month, months[month])
 
         # Determining the water level status based on the fetched data
-        water_level_status = 'Normal'
-        if float(pegel.replace(',', '.')) >= 5:
-            water_level_status = 'Dangerous'
+        water_level_status = 'Not Available to Work'
+        if float(pegel.replace(',', '.')) <= 1.2:
+            water_level_status = 'Available to Work'
 
         # Updating the global data dictionary
         global global_data
