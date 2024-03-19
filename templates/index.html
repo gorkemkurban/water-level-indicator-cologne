@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cologne Water Level Data">
+    <meta name="keywords" content="Cologne, Köln, Water Level, Hochwasser, Data">
+    <title>Cologne Water Level Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Cologne Water Level Data</h1>
+    <table id="hochwasserTable">
+        <tr>
+            <th>Gauge</th>
+            <th>Water Level (m)</th>
+            <th>Date/Time</th>
+            <th>Image</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Pegel Köln-Hochwasser</td>
+            <td id="pegelValue">{{ data.pegel }}</td>
+            <td id="dateTimeValue">{{ data.datum }} - {{ data.uhrzeit }}</td>
+            <td id="imageCell">
+                <img id="grafikImage" src="{% if data.grafik == 'pegel_5.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_5.jpg{% elif data.grafik == 'pegel_4.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_4.jpg{% elif data.grafik == 'pegel_3.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_3.jpg{% elif data.grafik == 'pegel_2.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_2.jpg{% elif data.grafik == 'pegel_1.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_1.jpg{% else %}http://www.stadt-koeln.de/images/hochwasser/{{ data.grafik }}{% endif %}" alt="Pegel Grafik">
+            </td>
+            <td id="statusValue">{{ data.water_level_status }}</td>
+        </tr>
+    </table>
+    <script>
+        function getData() {
+            fetch('/get_data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('pegelValue').textContent = data.pegel;
+                document.getElementById('dateTimeValue').textContent = data.datum + ' - ' + data.uhrzeit;
+                document.getElementById('statusValue').textContent = data.water_level_status;
+                
+                let grafikImage = document.getElementById('grafikImage');
+                if (data.grafik === 'pegel_5.jpg' || data.grafik === 'pegel_4.jpg' || data.grafik === 'pegel_3.jpg' || data.grafik === 'pegel_2.jpg' || data.grafik === 'pegel_1.jpg') {
+                    grafikImage.src = 'http://www.stadt-koeln.de/images/hochwasser/' + data.grafik;
+                } else {
+                    grafikImage.src = 'http://www.stadt-koeln.de/images/hochwasser/' + data.grafik;
+                }
+            });
+        }
+
+        setInterval(getData, 5000); // Update data every 5 seconds
+    </script>
+</body>
+</html>
