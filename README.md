@@ -25,7 +25,7 @@ https://www.stadt-koeln.de/interne-dienste/hochwasser/pegel_ws.php <br>
 
 <h2>To Do</h2>
 <ul>
-  
+  <li>An image showing the water level will be added and it will peak at 1.2 above</li>
 </ul>
 
 <h2>Done</h2>
