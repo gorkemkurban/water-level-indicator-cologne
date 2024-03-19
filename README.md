@@ -10,9 +10,9 @@ Welcome to my project developed for the <a href="https://digitalheritagelab.com"
 Our main goal is to create a program that measures and reports the water levels in the city of Cologne and warns of danger. Our main goal is to make the program and api more usable with graphics and 3D visualizations.
 
 <h2>Technologies</h2>
-Python
-Flask
-<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup - Python Package</a>
+Python <br>
+Flask <br>
+<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup - Python Package</a> <br>
 
 <h2>Contributions</h2>
 
