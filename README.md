@@ -1,4 +1,4 @@
-Water Level Indicator Cologne
+<h1>Water Level Indicator Cologne</h1>
 A program that measures and graphs the water level of the Rhine
 
 <h2>Overview</h2>
