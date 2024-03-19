@@ -1,4 +1,4 @@
-# water-level-indicator-koln
+# water-level-indicator-cologne
 A program that measures and graphs the water level of the Rhine
 
 <h2>Project Objective</h2>
