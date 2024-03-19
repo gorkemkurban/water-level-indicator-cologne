@@ -1,9 +1,12 @@
 # water-level-indicator-koln
 A program that measures and graphs the water level of the Rhine
 
+<h2>Project Objective</h2>
+
+A program that shows live water levels in the rivers in the city of Cologne and reports whether the situation is dangerous or not.
+
 <h2>Useful Links</h2>
 
-https://github.com/hatorikibble/pegelbot <br>
 https://www.offenedaten-koeln.de/dataset/pegelstand-stadt-köln <br>
 https://www.stadt-koeln.de/interne-dienste/hochwasser/pegel_ws.php <br>
 
