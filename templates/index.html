@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
         }
         table {
-            width: 70%;
+            width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
         }
@@ -27,6 +27,26 @@
             max-width: 100px;
             height: auto;
         }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: black;
+            width: 110px;
+            height: 110px;
+        }
+        #rectangle {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: height 0.5s;
+            align-self: flex-end; /* Keep the container at the bottom */
+        }
+        #rectangleCell {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +58,7 @@
             <th>Date/Time</th>
             <th>Image</th>
             <th>Status</th>
+            <th>Rectangle</th>
         </tr>
         <tr>
             <td>Pegel Köln-Hochwasser</td>
@@ -47,8 +68,14 @@
                 <img id="grafikImage" src="{% if data.grafik == 'pegel_5.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_5.jpg{% elif data.grafik == 'pegel_4.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_4.jpg{% elif data.grafik == 'pegel_3.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_3.jpg{% elif data.grafik == 'pegel_2.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_2.jpg{% elif data.grafik == 'pegel_1.jpg' %}http://www.stadt-koeln.de/images/hochwasser/pegel_1.jpg{% else %}http://www.stadt-koeln.de/images/hochwasser/{{ data.grafik }}{% endif %}" alt="Pegel Grafik">
             </td>
             <td id="statusValue">{{ data.water_level_status }}</td>
+            <td id="rectangleCell">
+                <div id="container">
+                    <div id="rectangle"></div>
+                </div>
+            </td>
         </tr>
     </table>
+
     <script>
         function getData() {
             fetch('/get_data')
@@ -57,17 +84,18 @@
                 document.getElementById('pegelValue').textContent = data.pegel;
                 document.getElementById('dateTimeValue').textContent = data.datum + ' - ' + data.uhrzeit;
                 document.getElementById('statusValue').textContent = data.water_level_status;
-                
-                let grafikImage = document.getElementById('grafikImage');
-                if (data.grafik === 'pegel_5.jpg' || data.grafik === 'pegel_4.jpg' || data.grafik === 'pegel_3.jpg' || data.grafik === 'pegel_2.jpg' || data.grafik === 'pegel_1.jpg') {
-                    grafikImage.src = 'http://www.stadt-koeln.de/images/hochwasser/' + data.grafik;
-                } else {
-                    grafikImage.src = 'http://www.stadt-koeln.de/images/hochwasser/' + data.grafik;
-                }
+
+                // Update the rectangle size
+                const rectangleValue = parseFloat(data.pagel);
+                const maxHeight = 100; // Maximum height (100px)
+                const newHeight = rectangleValue * maxHeight / 1.2; // Adjust the ratio by dividing by 1.2
+
+                const rectangle = document.getElementById('rectangle');
+                rectangle.style.height = newHeight + 'px';
             });
         }
 
-        setInterval(getData, 5000); // Update data every 5 seconds
+        setInterval(getData, 1000); // Update the data every 1 seconds
     </script>
 </body>
 </html>
